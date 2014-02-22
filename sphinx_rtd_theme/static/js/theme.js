@@ -14,6 +14,10 @@ $( document ).ready(function() {
     });  
     // Make tables responsive
     $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");
+    // Remove '\n' in '<p>' to escape the blank between Chinese words.
+    $("p").each(function (idx, el) {
+      el.innerHTML = el.innerHTML.replace(/\s*\n\s*/gi,'');
+    });
 });
 
 window.SphinxRtdTheme = (function (jquery) {
